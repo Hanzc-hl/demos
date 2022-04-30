@@ -22,7 +22,7 @@ services:
       - ~/.ssh:/data/git/.ssh
     ports:
       - "3000:3000"
-      - "222:22"
+      - "222:222"
     depends_on:
       - db
 
