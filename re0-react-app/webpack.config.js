@@ -1,0 +1,32 @@
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: {
+    home: "./src/index.js",
+    react_family: ["react", "react-dom"],
+  },
+  output: {
+    path: path.join(__dirname, "/dist"),
+    filename: (pathData) => {
+      console.log("webpack output filename: ", pathData);
+      return "[name].js";
+    },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,                // js | jsx中的es6语法和jsx语法, 需要用babel-loader处理
+        exclude: /node_modules/,        // webpack 打包从entry解析, 也会解析到node_modules中引入的外部模块, 外部模块一般都是已经打包好的, 所以不用再处理
+        use: {
+          loader: "babel-loader",
+        },
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
+};
