@@ -2,8 +2,6 @@ version: "3"
 networks:
   gitea:
     external: false
-volumes:
-  - /home/ubuntu/.ssh/:/data/git/.ssh
 services:
   server:
     image: gitea/gitea:1.16.6
@@ -21,11 +19,10 @@ services:
       - gitea
     volumes:
       - ./gitea:/data
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
+      - ~/.ssh:/data/git/.ssh
     ports:
       - "3000:3000"
-      - "222:22"
+      - "222:222"
     depends_on:
       - db
 
