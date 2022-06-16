@@ -1,5 +1,8 @@
 const path = require("path");
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const FriendlyErrorsWebpackPlugin = require("@soda/friendly-errors-webpack-plugin");
+
 const mockServer = require("./mock/server");
 
 module.exports = {
@@ -10,7 +13,6 @@ module.exports = {
   output: {
     path: path.join(__dirname, "/dist"),
     filename: (pathData) => {
-      console.log("webpack output filename: ", pathData);
       return "[name].js";
     },
   },
@@ -30,6 +32,7 @@ module.exports = {
       template: './src/index.html',
       chunks: ['home', 'react_family', 'common'],
     }),
+    new FriendlyErrorsWebpackPlugin(),
   ],
   optimization: {
     splitChunks: {
@@ -43,9 +46,11 @@ module.exports = {
     }
   },
   devServer: {
-    onAfterSetupMiddleware: (devServer) => {
+    setupMiddlewares: (middlewares, devServer) => {
       if(!devServer) throw new Error('webpack-dev-server is not defined');
       mockServer(devServer.app);
+      return middlewares;
     }
-  }
+  },
+  stats: 'none'
 };

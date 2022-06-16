@@ -1,7 +1,8 @@
 {
   "name": "re0-react-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A react project started with npm init",
+  "repository": "https://github.com/Hanzc-hl/demos/tree/master/re0-react-app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,6 +20,7 @@
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
+    "@soda/friendly-errors-webpack-plugin": "^1.8.1",
     "babel-loader": "^8.2.5",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.73.0",
