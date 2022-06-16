@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const mockServer = require("./mock/server");
 
 module.exports = {
   entry: {
@@ -27,6 +28,24 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      chunks: ['home', 'react_family', 'common'],
     }),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          name: "commons",
+          chunks: "initial",
+          minChunks: 2
+        }
+      }
+    }
+  },
+  devServer: {
+    onAfterSetupMiddleware: (devServer) => {
+      if(!devServer) throw new Error('webpack-dev-server is not defined');
+      mockServer(devServer.app);
+    }
+  }
 };
