@@ -29,7 +29,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
       chunks: ['home', 'react_family', 'common'],
     }),
     new FriendlyErrorsWebpackPlugin(),
