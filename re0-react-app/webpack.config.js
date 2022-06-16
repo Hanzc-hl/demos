@@ -2,6 +2,7 @@ const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("@soda/friendly-errors-webpack-plugin");
+const TerserWebpackPlugin = require("terser-webpack-plugin");
 
 const mockServer = require("./mock/server");
 
@@ -42,7 +43,18 @@ module.exports = {
           minChunks: 2
         }
       }
-    }
+    },
+    minimize: true,
+    minimizer: [
+      new TerserWebpackPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          }
+        },
+        extractComments: false,
+      })
+    ]
   },
   devServer: {
     setupMiddlewares: (middlewares, devServer) => {
