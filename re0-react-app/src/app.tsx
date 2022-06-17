@@ -1,13 +1,16 @@
-import React from 'react'
-const enum aa {
-  base,
-  next
-}
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BasicLayout from "./layouts/BasicLayout";
+
 const app = () => {
-  let bb = aa.base;
   return (
-    <div>this is re0 react app</div>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<BasicLayout />}>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default app;

@@ -5,7 +5,7 @@ const DllPlugin = require("webpack").DllPlugin;
 module.exports = {
   mode: "development",
   entry: {
-    vendor: ["react", "react-dom"],
+    vendor: ["react", "react-dom/client", "react-router-dom"],
   },
   output: {
     filename: "[name].js",
@@ -21,4 +21,15 @@ module.exports = {
       path: path.resolve(__dirname, "dist/dll", "[name].manifest.json"),
     }),
   ],
+  performance: {
+    hints: false,
+  },
+  stats: {
+    groupModulesByAttributes: false,
+    groupModulesByCacheStatus: false,
+    groupModulesByExtension: false,
+    groupModulesByLayer: false,
+    groupModulesByPath: false,
+    groupModulesByType: false,
+  },
 };
