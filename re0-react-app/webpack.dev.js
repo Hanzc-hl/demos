@@ -2,8 +2,6 @@ const { merge } = require("webpack-merge");
 
 const FriendlyErrorsWebpackPlugin = require("@soda/friendly-errors-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const mockServer = require("./mock/server");
 const common = require("./webpack.common");
@@ -12,7 +10,6 @@ module.exports = merge(common, {
   mode: "development",
   plugins: [
     new FriendlyErrorsWebpackPlugin(),
-    new BundleAnalyzerPlugin({ analyzerPort: 8081, openAnalyzer: false }),
   ],
   optimization: {
     splitChunks: {

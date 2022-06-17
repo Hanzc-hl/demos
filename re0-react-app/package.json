@@ -5,10 +5,11 @@
   "repository": "https://github.com/Hanzc-hl/demos/tree/master/re0-react-app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config webpack.dev.js --hot",
+    "analyze": "webpack --config webpack.prod.analyze.js",
     "build": "webpack --config webpack.prod.js",
-    "build:dll": "webpack --config webpack.dll.js"
+    "build:dll": "webpack --config webpack.dll.js",
+    "start": "webpack-dev-server --config webpack.dev.js --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
