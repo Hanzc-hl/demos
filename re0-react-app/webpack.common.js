@@ -14,6 +14,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "[name]_[chunkhash:8].js",
+    assetModuleFilename: "[name]_[hash][ext][query]",
     clean: {
       keep: /dll/,
     },
