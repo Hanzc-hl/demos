@@ -6,15 +6,6 @@ const common = require("./webpack.common");
 module.exports = merge(common, {
   mode: "production",
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: "commons",
-          chunks: "initial",
-          minChunks: 2,
-        },
-      },
-    },
     minimize: true,
     minimizer: [
       new TerserWebpackPlugin({
@@ -37,5 +28,5 @@ module.exports = merge(common, {
     groupModulesByLayer: false,
     groupModulesByPath: false,
     groupModulesByType: false,
-  }
+  },
 });

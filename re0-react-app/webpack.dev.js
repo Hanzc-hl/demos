@@ -12,15 +12,6 @@ module.exports = merge(common, {
     new FriendlyErrorsWebpackPlugin(),
   ],
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: "commons",
-          chunks: "initial",
-          minChunks: 2,
-        },
-      },
-    },
     minimize: false,
     minimizer: [
       new TerserWebpackPlugin({

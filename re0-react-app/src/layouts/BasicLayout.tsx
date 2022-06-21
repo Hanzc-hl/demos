@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import Header from "../components/common/Header";
-import styles from './BasicLayout.less';
+import Footer from "../components/common/Footer";
+import styles from "./BasicLayout.less";
 
 interface BasicLayoutProps {}
 
@@ -9,8 +10,13 @@ const BasicLayout: React.FC<PropsWithChildren<BasicLayoutProps>> = ({
 }) => {
   return (
     <div className={styles.basicLayout}>
-      <Header />
-      {children}
+      <header className={styles.header}>
+        <Header />
+      </header>
+      <main className={styles.main}>{children}</main>
+      <footer className={styles.footer}>
+        <Footer />
+      </footer>
     </div>
   );
 };

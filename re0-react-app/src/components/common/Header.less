@@ -1,0 +1,32 @@
+@import "../../styles/colors.less";
+
+.header {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .logo,
+  .user {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+  }
+
+  .logo {
+    width: 80px;
+    height: 100%;
+    flex: 0 0 auto;
+    background-image: url(../../assets/images/amilia_384.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .nav {
+    height: 100%;
+    flex: 1;
+  }
+  .user {
+    height: 100%;
+    flex: 0 0 auto;
+    background-color: @ease-color;
+  }
+}
